@@ -3,34 +3,31 @@ import Banner from '../../Components/Banner'
 import Header from '../../Components/Header'
 import contactImg from '../../Assets/contact-illus.png'
 import Form from '../../Components/Form'
-import { FAQ } from './styles'
+import { FAQ, Content } from './styles'
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
-import { PlusCircle } from 'phosphor-react'
-import { Content } from './styles'
-import { Question } from 'phosphor-react'
+import { PlusCircle, Question } from 'phosphor-react'
 import Footer from '../../Components/Footer'
 
-const ContactUs = () => {
+const Contato = () => {
   return (
     <>
       <Header />
-      <Banner text={'Contact Us'} imgUrl={contactImg} />
+      <Banner text={'Fale Conosco'} imgUrl={contactImg} />
       <Form />
       <FAQ>
-        <h4>Frequently Asked Questions</h4>
-        <h2>If you have questions we have answer</h2>
+        <h4>Perguntas Frequentes</h4>
+        <h2>Se você tem dúvidas, nós temos respostas</h2>
         <h6>
-          Answers for our most popular questions about sportsbetting, crypto,
-          and bitbetio
+          Respostas para as dúvidas mais comuns sobre apostas esportivas, criptomoedas e a BitBet.io.
         </h6>
         <div className='buttons'>
-          <button>General</button>
-          <button>Affiliate</button>
-          <button>Sports</button>
-          <button>Tournament</button>
+          <button>Geral</button>
+          <button>Afiliados</button>
+          <button>Esportes</button>
+          <button>Torneios</button>
         </div>
       </FAQ>
       <Content>
@@ -39,15 +36,12 @@ const ContactUs = () => {
             className='summary2'
             expandIcon={<PlusCircle size={40} />}
           >
-            <Question size={40} className='icone' />I want to play at Bitbetio,
-            What do i need to do?
+            <Question size={40} className='icone' />
+            Quero jogar na BitBet.io. O que preciso fazer?
           </AccordionSummary>
-
           <AccordionDetails>
             <Typography className='typography'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              Você precisa apenas se cadastrar, fazer um depósito e começar a apostar nos jogos disponíveis.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -58,14 +52,11 @@ const ContactUs = () => {
             expandIcon={<PlusCircle size={40} />}
           >
             <Question size={40} className='icone' />
-            How fast do i get paid once i win a bet
+            Quanto tempo leva para eu receber após vencer uma aposta?
           </AccordionSummary>
-
           <AccordionDetails>
             <Typography className='typography'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              Os pagamentos são processados automaticamente após a finalização do evento. Pode levar até alguns minutos.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -76,14 +67,11 @@ const ContactUs = () => {
             expandIcon={<PlusCircle size={40} />}
           >
             <Question size={40} className='icone' />
-            What are the commissions i have to pay?
+            Quais são as comissões que preciso pagar?
           </AccordionSummary>
-
           <AccordionDetails>
             <Typography className='typography'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              A BitBet.io cobra uma pequena taxa de transação em algumas operações. Consulte os termos para mais detalhes.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -94,14 +82,11 @@ const ContactUs = () => {
             expandIcon={<PlusCircle size={40} />}
           >
             <Question size={40} className='icone' />
-            Can i set the odds for any bet i want?
+            Posso definir as odds de qualquer aposta?
           </AccordionSummary>
-
           <AccordionDetails>
             <Typography className='typography'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              Não. As odds são definidas pela plataforma com base em análise estatística e algoritmos automatizados.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -112,14 +97,11 @@ const ContactUs = () => {
             expandIcon={<PlusCircle size={40} />}
           >
             <Question size={40} className='icone' />
-            What kind of Escrow do you provide?
+            Que tipo de garantia (escrow) vocês oferecem?
           </AccordionSummary>
-
           <AccordionDetails>
             <Typography className='typography'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              Utilizamos contratos inteligentes e auditorias para garantir a segurança de cada transação.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -129,4 +111,4 @@ const ContactUs = () => {
   )
 }
 
-export default ContactUs
+export default Contato

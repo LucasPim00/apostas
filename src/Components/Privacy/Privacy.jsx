@@ -9,85 +9,56 @@ import {
   Body,
 } from "./styled.js";
 
-const Privacy = () => {
+const PoliticaPrivacidade = () => {
   return (
     <Body>
       <Container>
         <Divterm>
           <Titleterm>
-            WE'RE ALWAYS LOOKING FOR NEW WAYS TO PROVIDE PRIVACY FOR OUR
-            CUSTOMERS.
+            ESTAMOS SEMPRE BUSCANDO NOVAS FORMAS DE PROTEGER A PRIVACIDADE DOS NOSSOS CLIENTES.
           </Titleterm>
           <Pterm>
-            Id ipsum mi tempor eget. Pretium consectetur scelerisque blandit
-            habitasse non ullamcorper enim, diam quam id et, tempus massa. Sed
-            nam vulputate pellentesque quis. Varius a, nunc faucibus proin
-            elementum id odio auctor. Nunc, suspendisse consequat libero,
-            pharetra tellus vulputate auctor venenatis tortor non rhoncus at
-            duis. Pharetra ipsum mauris integer sit feugiat.
+            Nós valorizamos a sua privacidade. Trabalhamos constantemente para garantir que suas informações estejam seguras e protegidas contra qualquer acesso indevido.
           </Pterm>
           <Ulterm>
-            <Literm>
-              — Blandit dignissim nulla varius tristique a sed integer ut
-              tempor.
-            </Literm>
-            <Literm>— Augue interdum semper bibendum amet sed.</Literm>
-            <Literm>— Dis in at ultricies tortor sit tellus.</Literm>
-            <Literm>— Habitant ornare aenean maecenas pretium</Literm>
+            <Literm>— Informações seguras e protegidas por padrão.</Literm>
+            <Literm>— Transparência no uso dos seus dados.</Literm>
+            <Literm>— Sem compartilhamento com terceiros sem seu consentimento.</Literm>
+            <Literm>— Respeito à sua privacidade em todas as interações.</Literm>
           </Ulterm>
           <Pterm>
-            Eget purus aenean sit risus. Arcu, aliquam eget et viverra risus
-            purus. Commodo fames tristique dui pharetra elit aliquet morbi. Eget
-            consectetur risus nunc lorem sit consequat aliquet. Dolor velit
-            consectetur etiam scelerisque. Integer interdum sodales scelerisque
-            diam massa quam sit quis. Sed et dui a nam pulvinar. Tristique
-            justo, donec lectus vitae, cursus ligula ridiculus lacus, tincidunt.
-            Diam dictumst faucibus dui aliquet aenean nascetur feugiat leo.
-            Etiam dignissim orci dignissim vitae.
+            Nossa equipe está comprometida em seguir as melhores práticas de segurança da informação. Monitoramos e atualizamos nossos sistemas com frequência, sempre com foco na proteção dos seus dados.
           </Pterm>
         </Divterm>
+
         <Divterm>
           <Titleterm>
-            YOUR DATA IS SAFE WITH US, WE WILL NOT SHARE ANY INFORMATION WITH
-            EXTERNAL SOURCES.
+            SEUS DADOS ESTÃO SEGUROS CONOSCO, NÃO COMPARTILHAREMOS INFORMAÇÕES COM FONTES EXTERNAS.
           </Titleterm>
           <Pterm>
-            Blandit dignissim nulla varius tristique a sed integer ut tempor.
-            Augue interdum semper bibendum amet sed. Dis in at ultricies tortor
-            sit tellus. Habitant ornare aenean maecenas pretium, dui ullamcorper
-            quis. Egestas viverra et id aliquet faucibus rhoncus a. Sollicitudin
-            nisl nulla tempor pretium lorem at mauris faucibus pulvinar.
+            Adotamos medidas rígidas de segurança para garantir que suas informações estejam sempre protegidas. A sua confiança é nossa prioridade.
           </Pterm>
           <Olterm>
             <Literm>
-              Eget purus aenean sit risus. Arcu, aliquam eget et viverra risus
-              purus. Commodo fames tristique dui pharetra elit aliquet morbi.
+              Dados criptografados e armazenados com segurança.
             </Literm>
             <Literm>
-              Eget consectetur risus nunc lorem sit consequat aliquet. Dolor
-              velit consectetur etiam scelerisque.
+              Processos internos auditados regularmente.
             </Literm>
             <Literm>
-              Integer interdum sodales scelerisque diam massa quam sit quis. Sed
-              et dui a nam pulvinar. Tristique justo, donec lectus vitae, cursus
-              ligula ridiculus lacus, tincidunt.
+              Equipe especializada em segurança da informação.
             </Literm>
             <Literm>
-              Diam dictumst faucibus dui aliquet aenean nascetur feugiat leo.
-              Etiam dignissim.
+              Transparência sobre o uso de dados pessoais.
             </Literm>
             <Literm>
-              Aliquam eget et viverra risus purus. Commodo fames tristique dui
-              pharetra elit aliquet morbi.
+              Compromisso com a LGPD e demais legislações vigentes.
             </Literm>
           </Olterm>
-          <Titleterm>COOKIES AND TRACKING</Titleterm>
+
+          <Titleterm>COOKIES E RASTREAMENTO</Titleterm>
           <Pterm>
-            Consequat mauris nunc congue nisi. Cursus metus aliquam eleifend mi
-            in nulla. Dignissim cras tincidunt lobortis feugiat vivamus. Blandit
-            aliquam etiam erat velit. Sapien faucibus et molestie ac. Ornare
-            aenean euismod elementum nisi quis eleifend quam adipiscing vitae.
-            Id cursus metus aliquam eleifend mi in nulla posuere sollicitudin.
+            Utilizamos cookies para melhorar sua experiência em nossa plataforma. Esses dados nos ajudam a entender seu comportamento de navegação e oferecer conteúdos mais relevantes. Você pode gerenciar suas preferências a qualquer momento.
           </Pterm>
         </Divterm>
       </Container>
@@ -95,4 +66,4 @@ const Privacy = () => {
   );
 };
 
-export default Privacy;
+export default PoliticaPrivacidade;

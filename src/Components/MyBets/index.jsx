@@ -5,10 +5,10 @@ import Timestamp from 'react-timestamp'
 import Stopwatch from '../Stopwatch'
 import formatCurrency from '../../Utils/formatCurrency.js'
 
-const MyBets = ({ match }) => {
+const MinhasApostas = ({ match }) => {
   return (
     <Container>
-      {/* <Content> */}
+      {/* Informações do topo */}
       <SectionTop>
         <button>{match.league.name}</button>
         <span>
@@ -16,10 +16,11 @@ const MyBets = ({ match }) => {
         </span>
       </SectionTop>
 
+      {/* Conteúdo principal com os times */}
       <Main>
         <Card>
           <h2>{match.teams.home.name}</h2>
-          <p className='description'>Home</p>
+          <p className='description'>Mandante</p>
           <img src={match.teams.home.logo} alt={match.teams.home.name} />
         </Card>
 
@@ -38,19 +39,20 @@ const MyBets = ({ match }) => {
 
         <Card>
           <h2>{match.teams.away.name}</h2>
-          <p className='description'>Away</p>
+          <p className='description'>Visitante</p>
           <img src={match.teams.away.logo} alt={match.teams.away.name} />
         </Card>
       </Main>
 
+      {/* Seção inferior com informações da aposta */}
       <SectionBottom>
         <button>{match.shot.toUpperCase()}</button>
         <button>{formatCurrency(match.amount)}</button>
         <button>{match.odd}</button>
       </SectionBottom>
-      {/* </Content> */}
+      
     </Container>
   )
 }
 
-export default MyBets
+export default MinhasApostas

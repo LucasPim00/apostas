@@ -3,6 +3,7 @@ import Achievement from '../../Assets/achievements.png'
 import Trofeu from '../../Assets/winRatio.png'
 import Bitcoin from '../../Assets/bitcoin.png'
 import Tether from '../../Assets/tether.png'
+
 import {
   SectionRates,
   Card,
@@ -13,80 +14,77 @@ import {
   Amount,
   Container,
 } from './styles'
+
 import { useTransactions } from '../../Providers/Transactions'
 import Timestamp from 'react-timestamp'
 import { useUserBets } from '../../Providers/UserBets'
 import { useUsers } from '../../Providers/Users'
 import formatCurrency from '../../Utils/formatCurrency.js'
 
-const RecentActivity = () => {
+const AtividadeRecente = () => {
   const { historyTransactions } = useTransactions()
   const { userBetsList } = useUserBets()
   const { userId, affiliateTotal } = useUsers()
 
-  console.log(historyTransactions)
-
-  const bets = userBetsList.filter((item) => item.userId === userId)
-
-  const betsWon = bets.filter((item) => item.result === 'win')
-
-  const betsWonPercentage = (betsWon.length / bets.length) * 100
+  const apostas = userBetsList.filter((item) => item.userId === userId)
+  const apostasVencidas = apostas.filter((item) => item.result === 'win')
+  const porcentagemVitorias = (apostasVencidas.length / apostas.length) * 100
 
   return (
     <Container>
+      {/* Seção de estatísticas */}
       <SectionRates>
         <Card>
-          <img src={Hot} alt='Hot' />
+          <img src={Hot} alt='Ativo' />
           <Statistic>
-            {bets.length}
+            {apostas.length}
             <br />
-            <span>Total Bets</span>
+            <span>Total de Apostas</span>
           </Statistic>
         </Card>
         <Card>
-          <img src={Trofeu} alt='Hot' />
+          <img src={Trofeu} alt='Vitórias' />
           <Statistic>
-            {bets.length > 0 ? betsWonPercentage.toFixed(2) : 0}
+            {apostas.length > 0 ? porcentagemVitorias.toFixed(2) : 0}
             %
             <br />
-            <span>Win Ratio</span>
+            <span>Taxa de Vitória</span>
           </Statistic>
         </Card>
         <Card>
-          <img src={Achievement} alt='Hot' />
+          <img src={Achievement} alt='Afiliados' />
           <Statistic>
             {affiliateTotal()}
             <br />
-            <span>Referrals</span>
+            <span>Indicações</span>
           </Statistic>
         </Card>
       </SectionRates>
 
+      {/* Lista de transações */}
       <section>
         <ul>
           <li className='header'>
-            <h2>Recent Activity</h2>
+            <h2>Atividade Recente</h2>
           </li>
           <li>
-            <Date>Date/Time</Date>
-            <Type className='title'>Type</Type>
-            <Currency className='title'>Currency</Currency>
-            <Amount className='title'>Amount</Amount>
+            <Date>Data/Hora</Date>
+            <Type className='title'>Tipo</Type>
+            <Currency className='title'>Moeda</Currency>
+            <Amount className='title'>Valor</Amount>
           </li>
 
           {historyTransactions
-            .map((trans) => {
-              return (
-                <li>
-                  <Date>
-                    <Timestamp date={trans.timestamp} />
-                  </Date>
-                  <Type>{trans.type.toUpperCase()}</Type>
-                  <Currency>{trans.currency}</Currency>
-                  <Amount>{trans.amount.toFixed(2)}</Amount>
-                </li>
-              )
-            })
+            .map((trans) => (
+              <li key={trans.timestamp}>
+                <Date>
+                  <Timestamp date={trans.timestamp} />
+                </Date>
+                <Type>{trans.type.toUpperCase()}</Type>
+                <Currency>{trans.currency}</Currency>
+                <Amount>{formatCurrency(trans.amount)}</Amount>
+              </li>
+            ))
             .reverse()}
         </ul>
       </section>
@@ -94,4 +92,4 @@ const RecentActivity = () => {
   )
 }
 
-export default RecentActivity
+export default AtividadeRecente

@@ -1,18 +1,18 @@
-import Banner from "../../Components/Privacy/Banner/index";
+import Banner from "../../Components/Privacy/Banner";
 import img from "../../Assets/banner-bg.png";
-import TermsCond from "../../Components/Privacy/Privacy";
-import Header from "../../Components/Header";
-import Footer from "../../Components/Footer";
+import PoliticaDePrivacidade from "../../Components/Privacy/Privacy";
+import Cabecalho from "../../Components/Header";
+import Rodape from "../../Components/Footer";
 
-const Privacy = () => {
+const Privacidade = () => {
   return (
     <>
-      <Header />
-      <Banner text={"Privacy"} imgUrl={img} />
-      <TermsCond />
-      <Footer />
+      <Cabecalho />
+      <Banner text={"Política de Privacidade"} imgUrl={img} />
+      <PoliticaDePrivacidade />
+      <Rodape />
     </>
   );
 };
 
-export default Privacy;
+export default Privacidade;

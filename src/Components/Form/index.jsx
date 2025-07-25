@@ -1,104 +1,106 @@
-import { Button } from '@mui/material'
-import { Container } from './styles'
-import { Content } from './styles'
-import * as yup from 'yup'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import axios from 'axios'
+import { Button } from '@mui/material';
+import { Container } from './styles';
+import { Content } from './styles';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
 
 const Form = () => {
   const formSchema = yup.object().shape({
     name: yup
       .string()
-      .required('Mandatory name')
+      .required('Nome obrigatório')
       .matches(
         /^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)*)$/,
-        'Name can not have numbers'
+        'O nome não pode conter números'
       ),
-    number: yup.string().required('Mandatory cellphone'),
-    email: yup.string().required('Mandatory email').email('Invalid email'),
-    subject: yup.string().required('Mandatory subject'),
-    message: yup.string().required('Mandatory message'),
-  })
+    number: yup.string().required('Celular obrigatório'),
+    email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
+    subject: yup.string().required('Assunto obrigatório'),
+    message: yup.string().required('Mensagem obrigatória'),
+  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(formSchema),
-  })
+  });
 
-  const url = 'https://capstone-group2-alex-api.herokuapp.com/contact'
+  const url = 'https://capstone-group2-alex-api.herokuapp.com/contact';
 
   const onSubmitFunction = (data) => {
     axios
       .post(url, data)
       .then(function (response) {
-        console.log(response)
+        console.log(response);
       })
       .catch(function (error) {
-        console.log(error)
-      })
-  }
+        console.log(error);
+      });
+  };
 
   return (
     <Container>
       <Content>
-        <h1>Get in touch with us</h1>
+        <h1>Fale com a gente</h1>
         <h5>
-          Fill up the form and our team will get back to you within 24 hours
+          Preencha o formulário e nossa equipe retornará em até 24 horas.
         </h5>
         <form onSubmit={handleSubmit(onSubmitFunction)}>
           <label>
-            Name
+            Nome
             <input
-              className='input'
-              placeholder='John McLovin'
+              className="input"
+              placeholder="João da Silva"
               {...register('name')}
             />
           </label>
 
           <label>
-            Your email address
+            Seu e-mail
             <input
-              className='input'
-              placeholder='johnmclovin@msn.com'
+              className="input"
+              placeholder="joaodasilva@email.com"
               {...register('email')}
             />
           </label>
 
           <label>
-            Number
+            Celular
             <input
-              className='input'
-              placeholder='+55 (17) 99278-2316'
+              className="input"
+              placeholder="+55 (11) 91234-5678"
               {...register('number')}
             />
           </label>
 
           <label>
-            Subject
+            Assunto
             <input
-              className='input'
-              placeholder='Help with bets'
+              className="input"
+              placeholder="Ajuda com apostas"
               {...register('subject')}
             />
           </label>
 
           <label>
-            Message
+            Mensagem
             <textarea
-              placeholder='I would like to get help with my bets'
+              placeholder="Gostaria de ajuda com as minhas apostas"
               {...register('message')}
             ></textarea>
           </label>
-          <div className='botao'>
-            <Button type='submit'>Send Message</Button>
+
+          <div className="botao">
+            <Button type="submit">Enviar Mensagem</Button>
           </div>
         </form>
       </Content>
     </Container>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;

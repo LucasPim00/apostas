@@ -15,13 +15,13 @@ import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-const Withdraw = () => {
+const Saque = () => {
   const { userId, addBalance } = useUsers()
   const { addTransactions } = useTransactions()
 
   const token = JSON.parse(localStorage.getItem('@GambleAPI:token'))
 
-  const formWithdrawSchema = yup.object().shape({
+  const schemaSaque = yup.object().shape({
     amount: yup.number().required().positive(),
     paymentAddress: yup.string(),
   })
@@ -32,16 +32,16 @@ const Withdraw = () => {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(formWithdrawSchema),
+    resolver: yupResolver(schemaSaque),
   })
 
-  const onSubmitFunction = (data) => {
-    data.type = 'withdraw'
-    data.currency = 'USD'
-    data.userId = userId
-    data.timestamp = new Date()
+  const aoEnviar = (dados) => {
+    dados.type = 'withdraw'
+    dados.currency = 'USD'
+    dados.userId = userId
+    dados.timestamp = new Date()
 
-    addTransactions(data, token)
+    addTransactions(dados, token)
 
     reset()
   }
@@ -49,34 +49,34 @@ const Withdraw = () => {
   return (
     <Container>
       <ContainerWithdraw>
-        <h3>Withdraw</h3>
-        <p>Choose your payment method and withdrawal amount below.</p>
-        <FormInputs onSubmit={handleSubmit(onSubmitFunction)}>
+        <h3>Saque</h3>
+        <p>Escolha seu método de pagamento e valor do saque abaixo.</p>
+        <FormInputs onSubmit={handleSubmit(aoEnviar)}>
           <Input
             value='amount'
             type='text'
-            placeholder='Enter Amount'
+            placeholder='Informe o valor'
             register={register}
           />
           <Input
             value='paymentAddress'
             type='text'
-            placeholder='Enter Payment Address'
+            placeholder='Informe o endereço de pagamento'
             register={register}
           />
 
           <ContainerBtn>
-            <BtnWith type='submit'>Finalize Withdraw</BtnWith>
+            <BtnWith type='submit'>Finalizar Saque</BtnWith>
           </ContainerBtn>
         </FormInputs>
-        <h3>Notice:</h3>
+        <h3>Aviso:</h3>
         <p>
-          Withdrawals will take up to 2 business days to clear your account, the
-          process is done automatically.
+          Os saques levarão até 2 dias úteis para serem processados em sua conta,
+          o processo é feito automaticamente.
         </p>
       </ContainerWithdraw>
     </Container>
   )
 }
 
-export default Withdraw
+export default Saque

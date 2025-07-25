@@ -26,14 +26,15 @@ import {
 
 const BuyCrypto = () => {
   const { chooseList, setUsd, setData } = useContext(BuyCryptoContext);
+
   const handleList = (event) => {
     chooseList(event.target.value);
   };
 
   const formSchema = yup.object().shape({
-    crypto: yup.string().required("Choose your Crypto."),
-    payment: yup.string().required("Choose your payment."),
-    amount: yup.string().required("Choose an amount."),
+    crypto: yup.string().required("Escolha sua Criptomoeda."),
+    payment: yup.string().required("Escolha a forma de pagamento."),
+    amount: yup.string().required("Informe o valor."),
   });
 
   const { register, handleSubmit } = useForm({
@@ -44,48 +45,51 @@ const BuyCrypto = () => {
     setUsd(Number(data.amount * 0.000033));
     setData(data);
   };
+
   return (
     <>
       <DivBuyCrypto>
         <DivBuyInfo>
           <TitleBuy>
-            Buy cryptocurrency directly to your Bitbetio Account
+            Compre criptomoeda diretamente na sua conta Bitbetio
           </TitleBuy>
           <SubTitleBuy>
-            Once payment is completed, your cryptocurrency will be available in
-            Jugaro account within minutes
+            Assim que o pagamento for concluído, sua criptomoeda estará disponível
+            na conta Jugaro em poucos minutos.
           </SubTitleBuy>
         </DivBuyInfo>
+
         <form onSubmit={handleSubmit(onSubmitFunction)}>
           <FormBuyTransaction>
             <DIVLabelValue>
               <SubTitleBuy>
-                1. Choose the crypto you wish to buy, enter the amount, and
-                choose your favorite payment method.
+                1. Escolha a criptomoeda que deseja comprar, insira o valor e
+                escolha o método de pagamento.
               </SubTitleBuy>
             </DIVLabelValue>
 
             <DIVSelectors>
               <DIVLabelValue>
-                <LabelInput>Buy</LabelInput>
+                <LabelInput>Comprar</LabelInput>
                 <SelectInfo onClick={handleList} {...register("crypto")}>
                   <option value="BTC">BTC</option>
                   <option value="ETH">ETH</option>
                   <option value="LTC">LTC</option>
                 </SelectInfo>
               </DIVLabelValue>
+
               <DIVLabelValue>
-                <LabelInput>Payment Methods</LabelInput>
+                <LabelInput>Formas de Pagamento</LabelInput>
                 <SelectInfo {...register("payment")}>
                   <option>Visa</option>
-                  <option>Credit</option>
+                  <option>Crédito</option>
                   <option>Master</option>
                 </SelectInfo>
               </DIVLabelValue>
             </DIVSelectors>
 
             <DIVLabelValue>
-              <LabelInput>Amount</LabelInput>
+              <LabelInput>Valor</LabelInput>
               <DivInputValue>
                 <InputValue placeholder="100" {...register("amount")} />
                 <SelectCurrency>
@@ -96,19 +100,21 @@ const BuyCrypto = () => {
               </DivInputValue>
             </DIVLabelValue>
           </FormBuyTransaction>
+
           <DivBuyInfo>
             <SubTitleBuy>
-              2. Choose the best offer from our payment partners, and complete
-              your purchase.
+              2. Escolha a melhor oferta dos nossos parceiros de pagamento e
+              conclua sua compra.
             </SubTitleBuy>
           </DivBuyInfo>
+
           <DivTableTrade>
             <DivLineTable>
-              <PLineTable>Channels</PLineTable>
-              <PLineTable>Arrival Time</PLineTable>
-              <PLineTable>You will get</PLineTable>
-              <PLineTable>Rate(Fee Included)</PLineTable>
-              <TradeValue>Trade </TradeValue>
+              <PLineTable>Canais</PLineTable>
+              <PLineTable>Tempo de Chegada</PLineTable>
+              <PLineTable>Você Recebe</PLineTable>
+              <PLineTable>Taxa (já incluída)</PLineTable>
+              <TradeValue>Negociar</TradeValue>
             </DivLineTable>
             <ChangeList />
           </DivTableTrade>

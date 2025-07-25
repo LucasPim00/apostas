@@ -1,54 +1,54 @@
 import * as React from 'react'
-import Afilliate from '../../Components/Affiliate'
-import Deposit from '../../Components/Deposit'
-import Footer from '../../Components/Footer'
-import Header from '../../Components/Header'
-import MyBetsList from '../../Components/MyBetsList'
-import NavigationBar from '../../Components/NavigationBar'
-import RecentActivity from '../../Components/RecentActivity'
-import Settings from '../../Components/Settings'
-import SideBar from '../../Components/SideBar'
-import Transactions from '../../Components/Transactions'
-import Withdraw from '../../Components/Withdraw'
+import Afiliado from '../../Components/Affiliate'
+import Deposito from '../../Components/Deposit'
+import Rodape from '../../Components/Footer'
+import Cabecalho from '../../Components/Header'
+import ListaDeApostas from '../../Components/MyBetsList'
+import BarraDeNavegacao from '../../Components/NavigationBar'
+import AtividadeRecente from '../../Components/RecentActivity'
+import Configuracoes from '../../Components/Settings'
+import BarraLateral from '../../Components/SideBar'
+import Transacoes from '../../Components/Transactions'
+import Saque from '../../Components/Withdraw'
 import { DashboardContext } from '../../Providers/Dashboard'
 import { Container, DashboardContainer, Div } from './styles'
 
-const Dashboard = () => {
+const PainelDeControle = () => {
   const { tab } = React.useContext(DashboardContext)
 
-  const renderTab = () => {
+  const renderizarAba = () => {
     switch (tab) {
       case 'My Bets':
-        return <MyBetsList />
+        return <ListaDeApostas />
       case 'Deposit / Withdraw':
         return (
           <Div>
-            <Deposit />
-            <Withdraw />
+            <Deposito />
+            <Saque />
           </Div>
         )
       case 'Affiliate':
-        return <Afilliate />
+        return <Afiliado />
       case 'Transactions':
-        return <Transactions />
+        return <Transacoes />
       case 'Settings':
-        return <Settings />
+        return <Configuracoes />
       default:
-        return <RecentActivity />
+        return <AtividadeRecente />
     }
   }
 
   return (
     <Container>
-      <Header />
-      <NavigationBar />
+      <Cabecalho />
+      <BarraDeNavegacao />
       <DashboardContainer>
-        <SideBar />
-        <div>{renderTab()}</div>
+        <BarraLateral />
+        <div>{renderizarAba()}</div>
       </DashboardContainer>
-      <Footer />
+      <Rodape />
     </Container>
   )
 }
 
-export default Dashboard
+export default PainelDeControle

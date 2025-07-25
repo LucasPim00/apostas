@@ -23,9 +23,10 @@ import { useUsers } from "../../Providers/Users";
 
 const FormLogin = ({ closeModalLogin, handleChange, openModalRegister }) => {
   const { loginUser } = useUsers();
+
   const formLoginSchema = yup.object().shape({
-    email: yup.string().required("E-mail required *"),
-    password: yup.string().required("Password required *"),
+    email: yup.string().required("E-mail obrigatório *"),
+    password: yup.string().required("Senha obrigatória *"),
   });
 
   const {
@@ -48,18 +49,18 @@ const FormLogin = ({ closeModalLogin, handleChange, openModalRegister }) => {
         <button onClick={closeModalLogin}>X</button>
       </BtnClosed>
       <ContainerLogoMedias>
-        <span>Login Directly With</span>
+        <span>Login direto com</span>
         <div>
-          <a href="a" alt="Facebook">
+          <a href="#" alt="Facebook">
             <FacebookLogo size={32} />
           </a>
-          <a href="a" alt="Twitter">
+          <a href="#" alt="Twitter">
             <TwitterLogo size={32} />
           </a>
-          <a href="a" alt="Linkedin">
+          <a href="#" alt="Linkedin">
             <LinkedinLogo size={32} />
           </a>
-          <a href="a" alt="Instagram">
+          <a href="#" alt="Instagram">
             <InstagramLogo size={32} />
           </a>
         </div>
@@ -69,7 +70,7 @@ const FormLogin = ({ closeModalLogin, handleChange, openModalRegister }) => {
           register={register}
           value="email"
           type="text"
-          placeholder="Email"
+          placeholder="E-mail"
           error={errors.email?.message}
           name="Email"
         />
@@ -77,22 +78,22 @@ const FormLogin = ({ closeModalLogin, handleChange, openModalRegister }) => {
           register={register}
           value="password"
           type="password"
-          placeholder="Password"
+          placeholder="Senha"
           error={errors.password?.message}
-          name="Password"
+          name="Senha"
         />
         <div className="forgotPassword">
-          <a href="*" alt="Reference">
-            Forgot Password
+          <a href="#" alt="Esqueci a senha">
+            Esqueceu a senha?
           </a>
         </div>
         <ContainerBtn>
-          <BtnLogin type="submit">LOGIN</BtnLogin>
+          <BtnLogin type="submit">ENTRAR</BtnLogin>
         </ContainerBtn>
       </form>
       <ContainerForgotPass>
         <span>
-          Not a member?ㅤ
+          Ainda não tem conta?ㅤ
           <label
             htmlFor="Register"
             onClick={() => {
@@ -100,7 +101,7 @@ const FormLogin = ({ closeModalLogin, handleChange, openModalRegister }) => {
               openModalRegister();
             }}
           >
-            Register
+            Cadastre-se
           </label>
         </span>
       </ContainerForgotPass>

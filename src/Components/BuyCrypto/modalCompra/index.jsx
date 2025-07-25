@@ -19,20 +19,23 @@ const style = {
   p: 4,
   color: "white",
 };
+
 const styleButton = {
   border: "0",
   bgcolor: "white",
 };
 
-//modal -- se a quantia de dolar, nao for suficiente para comprar naquela opção
+// Modal — quando a quantia em dólar não for suficiente para comprar a cripto
 export const ModalQuantiaInsuficiente = () => {
   const { open, setOpen, teste, usd, data, person } =
     useContext(BuyCryptoContext);
+
   function handleClose() {
     setOpen(false);
   }
 
   const tokenAUTH = JSON.parse(window.localStorage.getItem("@GambleAPI:token"));
+
   const PATCHaxios = (data) => {
     api
       .patch(`/users/${person.id}`, data, {
@@ -41,16 +44,18 @@ export const ModalQuantiaInsuficiente = () => {
       .then((res) => {})
       .catch((res) => console.log(res));
   };
+
   const MandarParaAPI = () => {
     const soma = Number(data.amount) + Number(person.balance);
     const newBalance = {
       balance: soma,
     };
     PATCHaxios(newBalance);
-    toast.success("Transaction successfully done!", {
+    toast.success("Transação realizada com sucesso!", {
       theme: "colored",
     });
   };
+
   if (usd < teste) {
     return (
       <div>
@@ -62,8 +67,7 @@ export const ModalQuantiaInsuficiente = () => {
         >
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Buy {usd}
-              {data.crypto}
+              Comprar {usd} {data.crypto}
             </Typography>
             <button
               id="modal-modal-description"
@@ -73,7 +77,7 @@ export const ModalQuantiaInsuficiente = () => {
                 handleClose();
               }}
             >
-              Buy crypto
+              Confirmar compra
             </button>
           </Box>
         </Modal>
@@ -90,7 +94,7 @@ export const ModalQuantiaInsuficiente = () => {
         >
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Your amount of money is more than the actual trade has.
+              O valor inserido é maior do que a oferta disponível para esta transação.
             </Typography>
           </Box>
         </Modal>

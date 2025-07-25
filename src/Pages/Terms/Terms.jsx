@@ -1,17 +1,18 @@
-import Banner from "../../Components/Terms/Banner/index";
+import Banner from "../../Components/Terms/Banner";
 import img from "../../Assets/banner-bg.png";
-import TermsCond from "../../Components/Terms/Terms";
-import Header from "../../Components/Header";
-import Footer from "../../Components/Footer";
-const Terms = () => {
+import TermosCondicoes from "../../Components/Terms/Terms";
+import Cabecalho from "../../Components/Header";
+import Rodape from "../../Components/Footer";
+
+const Termos = () => {
   return (
     <>
-      <Header />
-      <Banner text={"Terms Conditions"} imgUrl={img} />
-      <TermsCond />
-      <Footer />
+      <Cabecalho />
+      <Banner text={"Termos e Condições"} imgUrl={img} />
+      <TermosCondicoes />
+      <Rodape />
     </>
   );
 };
 
-export default Terms;
+export default Termos;

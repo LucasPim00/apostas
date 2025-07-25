@@ -4,7 +4,7 @@ import Button from '@mui/material/Button'
 import { DashboardContext } from '../../Providers/Dashboard'
 import { useContext } from 'react'
 
-const NavigationBar = () => {
+const BarraDeNavegacao = () => {
   const { chooseTab } = useContext(DashboardContext)
 
   const handleClick = (event) => {
@@ -20,7 +20,7 @@ const NavigationBar = () => {
           id='Dashboard'
           onClick={handleClick}
         >
-          Recent Activity
+          Atividade Recente
         </Button>
         <Button
           color='inherit'
@@ -28,7 +28,7 @@ const NavigationBar = () => {
           id='My Bets'
           onClick={handleClick}
         >
-          My Bets
+          Minhas Apostas
         </Button>
         <Button
           color='inherit'
@@ -36,7 +36,7 @@ const NavigationBar = () => {
           id='Deposit / Withdraw'
           onClick={handleClick}
         >
-          Deposit / Withdraw
+          Depositar / Sacar
         </Button>
         <Button
           color='inherit'
@@ -44,7 +44,7 @@ const NavigationBar = () => {
           id='Affiliate'
           onClick={handleClick}
         >
-          Affiliate
+          Afiliado
         </Button>
         <Button
           color='inherit'
@@ -52,7 +52,7 @@ const NavigationBar = () => {
           id='Transactions'
           onClick={handleClick}
         >
-          Transactions
+          Transações
         </Button>
         <Button
           color='inherit'
@@ -60,11 +60,11 @@ const NavigationBar = () => {
           id='Settings'
           onClick={handleClick}
         >
-          Settings
+          Configurações
         </Button>
       </Toolbar>
     </Container>
   )
 }
 
-export default NavigationBar
+export default BarraDeNavegacao

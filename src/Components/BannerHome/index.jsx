@@ -9,21 +9,21 @@ import HomeStatistics from '../HomeStatistics'
 const BannerHome = () => {
   return (
     <Container>
-      <img src={imgCoin1} className='coin1' alt='coin1' />
-      <img src={imgCoin2} className='coin2' alt='coin2' />
-      <img src={imgCoin3} className='coin3-1' alt='coin3-1' />
-      <img src={imgCoin3} className='coin3-2' alt='coin3-2' />
-      <img src={imgCoin4} className='coin4' alt='coin4' />
-      <img src={imgWinnerCup} className='trophy' alt='trophy' />
+      <img src={imgCoin1} className='coin1' alt='moeda 1' />
+      <img src={imgCoin2} className='coin2' alt='moeda 2' />
+      <img src={imgCoin3} className='coin3-1' alt='moeda 3-1' />
+      <img src={imgCoin3} className='coin3-2' alt='moeda 3-2' />
+      <img src={imgCoin4} className='coin4' alt='moeda 4' />
+      <img src={imgWinnerCup} className='trophy' alt='troféu' />
       <ContainerText>
-        <h2>Bet & Win Today!</h2>
-        <h1>Sports Escrow Bets Peer 2 Peer</h1>
+        <h2>Aposte e Vença Hoje!</h2>
+        <h1>Apostas Esportivas Entre Usuários com Escrow</h1>
         <h3>
-          The fastest and easiest way to bet on your favorite Soccer team,
-          Choose on which team to bet and win!
+          A maneira mais rápida e fácil de apostar no seu time de futebol favorito.
+          Escolha o time em que deseja apostar e vença!
         </h3>
         <span>
-          <button>Get Start Now</button>
+          <button>Comece Agora</button>
         </span>
       </ContainerText>
 

@@ -10,15 +10,15 @@ import money from '../../Assets/dashboard-sidebar-icon-1.png'
 import help from '../../Assets/help.png'
 import formatCurrency from '../../Utils/formatCurrency'
 
-const SideBar = () => {
+const BarraLateral = () => {
   const { chooseTab } = useContext(DashboardContext)
   const history = useHistory()
   const [person, setPerson] = useState({})
   const { userId, imagem } = useUsers()
   const token = JSON.parse(window.localStorage.getItem('@GambleAPI:userId'))
-  useEffect(() => GETAXIOS())
+  useEffect(() => GETAXIOS(), [])
 
-  const handlClick = () => {
+  const irParaContato = () => {
     history.push('/contact')
   }
 
@@ -28,11 +28,9 @@ const SideBar = () => {
     })
   }
 
-  const handleClick = () => {
+  const irParaDeposito = () => {
     chooseTab('Deposit / Withdraw')
   }
-
- 
 
   return (
     <Container>
@@ -45,29 +43,29 @@ const SideBar = () => {
       <div className='cardMeio'>
         <Avatar src={money} sx={{ width: 86, height: 86 }}></Avatar>
         <h4>{formatCurrency(person.balance)}</h4>
-        <span>Available Balance</span>
+        <span>Saldo Disponível</span>
         <Button
           className='button'
           onClick={() => {
-            handleClick()
+            irParaDeposito()
           }}
         >
-          Deposit/Withdraw
+          Depositar/Sacar
         </Button>
       </div>
 
       <div className='cardFim'>
         <Avatar src={help} sx={{ width: 86, height: 86 }}></Avatar>
-        <h3>Need Help?</h3>
+        <h3>Precisa de Ajuda?</h3>
         <span className='help'>
-          Have questions? Our experts are here to help!
+          Está com dúvidas? Nossos especialistas estão prontos para te ajudar!
         </span>
-        <Button className='button' onClick={() => handlClick()}>
-          Start Now
+        <Button className='button' onClick={() => irParaContato()}>
+          Começar Agora
         </Button>
       </div>
     </Container>
   )
 }
 
-export default SideBar
+export default BarraLateral

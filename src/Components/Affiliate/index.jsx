@@ -29,10 +29,9 @@ import referralEarned2 from '../../Assets/earned-referral-icon-2.png'
 import { useUsers } from '../../Providers/Users'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
-import DatePicker from 'react-date-picker'
 import Timestamp from 'react-timestamp'
 
-const Afilliate = () => {
+const Afiliado = () => {
   const { afiliatesList, userId, userInfo, affiliateBalance } = useUsers()
   const [date, setDate] = useState('')
 
@@ -43,14 +42,14 @@ const Afilliate = () => {
   return (
     <DivAffiliate>
       <Divtitle>
-        <H5title>Afilliate Program</H5title>
+        <H5title>Programa de Afiliados</H5title>
         <Ptitle>
-          Get a lifetime reward up to 15% for inviting new people!
+          Ganhe recompensas vitalícias de até 15% ao convidar novas pessoas!
         </Ptitle>
       </Divtitle>
 
       <Divreferral>
-        <Preferral>My Referral Link</Preferral>
+        <Preferral>Meu link de afiliado</Preferral>
         <DIVcopyreferral>
           <Inputreferral
             type='text'
@@ -61,7 +60,7 @@ const Afilliate = () => {
             src={copyItem}
             onClick={() => {
               navigator.clipboard.writeText(userInfo.myAffiliateCode)
-              toast.success('Referral code copied to clipboard!', {
+              toast.success('Código de afiliado copiado para a área de transferência!', {
                 theme: 'colored',
               })
             }}
@@ -74,7 +73,7 @@ const Afilliate = () => {
           <IMGreferralEarned src={referralEarned1} />
           <DIVphrasesReferral>
             <PnumberReferral>{affiliateBalance()} USD</PnumberReferral>
-            <PphraseReferral>Earned Referral</PphraseReferral>
+            <PphraseReferral>Total Ganhado</PphraseReferral>
           </DIVphrasesReferral>
         </DIVreferralINFO>
 
@@ -82,33 +81,33 @@ const Afilliate = () => {
           <IMGreferralEarned src={referralEarned2} />
           <DIVphrasesReferral>
             <PnumberReferral>$0.00</PnumberReferral>
-            <PphraseReferral>Last Month</PphraseReferral>
+            <PphraseReferral>Mês Passado</PphraseReferral>
           </DIVphrasesReferral>
         </DIVreferralINFO>
       </DivInfos>
 
-        <DivInfoCalendario>
-          <PReferralCalendario>Referral History</PReferralCalendario>
-          <InputReferralCalendario
-            onChange={(e) => {
-              handleAffiliates(e.target.value)
-            }}
-            type='date'
-          />
-        </DivInfoCalendario>
-        <section>
-          <ul>
-            <li>
-              <Date className='title'>Date</Date>
-              <Type className='title'>Username</Type>
-              <Currency className='title'>Earned</Currency>
-              <Amount className='title'>E-mail</Amount>
-            </li>
-  
-           {afiliatesList.map((afilliates) => {
-              const { timestamp, username, email, affiliateUserId } = afilliates
-              if (affiliateUserId === userId) {
+      <DivInfoCalendario>
+        <PReferralCalendario>Histórico de Indicações</PReferralCalendario>
+        <InputReferralCalendario
+          onChange={(e) => {
+            handleAffiliates(e.target.value)
+          }}
+          type='date'
+        />
+      </DivInfoCalendario>
 
+      <section>
+        <ul>
+          <li>
+            <Date className='title'>Data</Date>
+            <Type className='title'>Usuário</Type>
+            <Currency className='title'>Valor</Currency>
+            <Amount className='title'>E-mail</Amount>
+          </li>
+
+          {afiliatesList.map((afilliates) => {
+            const { timestamp, username, email, affiliateUserId } = afilliates
+            if (affiliateUserId === userId) {
               return (
                 <li key={affiliateUserId}>
                   <Date>
@@ -117,14 +116,14 @@ const Afilliate = () => {
                   <Type>{username}</Type>
                   <Currency>$20.00</Currency>
                   <Amount>{email}</Amount>
-                </li> 
-                
-              )}
-            })}
-          </ul>
-        </section>
+                </li>
+              )
+            }
+          })}
+        </ul>
+      </section>
     </DivAffiliate>
   )
 }
 
-export default Afilliate
+export default Afiliado

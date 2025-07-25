@@ -15,67 +15,65 @@ import { useUsers } from '../../Providers/Users'
 import USD from '../../Assets/cifrao.png'
 import Timestamp from 'react-timestamp'
 
-const Transactions = () => {
+const Transacoes = () => {
   const { historyTransactions } = useTransactions()
 
   const { userId, usersList } = useUsers()
-  const [produtosFiltrados, setProdutosFiltrados] = useState([])
-  const [depWit, setDepWit] = useState('deposit')
+  const [transacoesFiltradas, setTransacoesFiltradas] = useState([])
+  const [tipo, setTipo] = useState('deposit')
   const [mes, setMes] = useState('262980000')
 
   const hoje = Number(new Date()) / 1000
 
-  console.log(historyTransactions)
-
-  const pesquisa = () => {
-    const result = historyTransactions.filter(
+  const aplicarFiltro = () => {
+    const resultado = historyTransactions.filter(
       (transaction) =>
-        transaction.type === depWit && transaction.userId === userId
+        transaction.type === tipo && transaction.userId === userId
     )
 
-    setProdutosFiltrados(result)
+    setTransacoesFiltradas(resultado)
   }
 
   return (
     <Container>
       <section>
         <Div>
-          <label>Month</label>
+          <label>Mês</label>
           <select onChange={(evento) => setMes(evento.target.value)}>
-            <option value='260000000'>Last 30 days</option>
-            <option value='520000000'>Last 60 days</option>
-            <option value='104000000'>Last 90 days</option>
+            <option value='260000000'>Últimos 30 dias</option>
+            <option value='520000000'>Últimos 60 dias</option>
+            <option value='104000000'>Últimos 90 dias</option>
           </select>
         </Div>
 
         <Div>
-          <label>Type</label>
-          <select onChange={(evento) => setDepWit(evento.target.value)}>
-            <option value='deposit'>Deposit</option>
-            <option value='withdraw'>Withdraw</option>
+          <label>Tipo</label>
+          <select onChange={(evento) => setTipo(evento.target.value)}>
+            <option value='deposit'>Depósito</option>
+            <option value='withdraw'>Saque</option>
           </select>
         </Div>
 
         <Div>
-          <label>Currency</label>
+          <label>Moeda</label>
           <select>
             <option value='USD'>USD</option>
           </select>
         </Div>
 
-        <button onClick={pesquisa}>Filter</button>
+        <button onClick={aplicarFiltro}>Filtrar</button>
       </section>
 
       <TransactionSection>
         <ul>
           <li>
-            <TransactionsDates>Date/Time</TransactionsDates>
-            <Type className='title'>Type</Type>
-            <Currency className='title'>Currency</Currency>
-            <Amount className='title'>Amount</Amount>
+            <TransactionsDates>Data/Hora</TransactionsDates>
+            <Type className='title'>Tipo</Type>
+            <Currency className='title'>Moeda</Currency>
+            <Amount className='title'>Valor</Amount>
           </li>
-          {produtosFiltrados.length > 0
-            ? produtosFiltrados.map((transaction, index) => (
+          {transacoesFiltradas.length > 0
+            ? transacoesFiltradas.map((transaction, index) => (
                 <li key={index}>
                   <TransactionsDates>
                     <SimpleDateTime
@@ -118,4 +116,4 @@ const Transactions = () => {
   )
 }
 
-export default Transactions
+export default Transacoes

@@ -2,74 +2,73 @@ import React, { useState } from 'react'
 import { useFootballMatches } from '../../Providers/FootballMatches'
 import { useUserBets } from '../../Providers/UserBets'
 import { useUsers } from '../../Providers/Users'
-import MyBets from '../MyBets'
-import NavMyBets from '../NavMyBets'
+import MinhasApostas from '../MyBets'
+import NavMinhasApostas from '../NavMyBets'
 import { Ul } from './styles'
 
-const MyBetsList = () => {
+const ListaMinhasApostas = () => {
   const { matches } = useFootballMatches()
   const { userBetsList } = useUserBets()
-
-  const [filteredList, setFilteredList] = useState([])
   const { userId } = useUsers()
+  const [listaFiltrada, setListaFiltrada] = useState([])
 
+  // Exibe as apostas em aberto após pequeno delay
   setTimeout(() => {
-    handleBets('open')
-  }, '100')
+    exibirApostas('open')
+  }, 100)
 
-  const handleBets = (status) => {
-    setFilteredList([])
-    const selectedBets = userBetsList.filter(
+  const exibirApostas = (status) => {
+    setListaFiltrada([])
+
+    const apostasSelecionadas = userBetsList.filter(
       (item) => item.status === status && item.userId === userId
     )
 
     const tempArray = []
 
-    selectedBets.forEach((bet) => {
-      const match = matches.find((match) => match.fixture.id === bet.fixture)
-      match.shot = bet.shot
-      match.odd = bet.bet.odd
-      match.amount = bet.bet.amount
-      console.log(bet)
-      tempArray.push(match)
+    apostasSelecionadas.forEach((aposta) => {
+      const partida = matches.find((match) => match.fixture.id === aposta.fixture)
+      partida.shot = aposta.shot
+      partida.odd = aposta.bet.odd
+      partida.amount = aposta.bet.amount
+      tempArray.push(partida)
     })
 
-    setFilteredList(tempArray)
+    setListaFiltrada(tempArray)
   }
 
-  const handleFinishedBets = (status) => {
-    setFilteredList([])
+  const exibirApostasFinalizadas = (status) => {
+    setListaFiltrada([])
 
-    const selectedBets = userBetsList.filter(
+    const apostasSelecionadas = userBetsList.filter(
       (item) => item.status === status && item.userId === userId
     )
 
     const tempArray = []
 
-    selectedBets.forEach((bet) => {
-      const match = matches.find((match) => match.fixture.id === bet.fixture)
-      match.shot = bet.shot
-      match.odd = bet.bet.odd
-      match.amount = bet.bet.amount
-      match.special = 'Finished'
-      console.log(bet)
-      tempArray.push(match)
+    apostasSelecionadas.forEach((aposta) => {
+      const partida = matches.find((match) => match.fixture.id === aposta.fixture)
+      partida.shot = aposta.shot
+      partida.odd = aposta.bet.odd
+      partida.amount = aposta.bet.amount
+      partida.special = 'Finalizado'
+      tempArray.push(partida)
     })
 
-    setFilteredList(tempArray)
+    setListaFiltrada(tempArray)
   }
 
   return (
     <>
-      <NavMyBets
-        handleBets={handleBets}
-        handleFinishedBets={handleFinishedBets}
+      <NavMinhasApostas
+        handleBets={exibirApostas}
+        handleFinishedBets={exibirApostasFinalizadas}
       />
 
       <Ul>
-        {filteredList.map((match) => (
-          <li key={match.fixture.id}>
-            <MyBets match={match} />
+        {listaFiltrada.map((partida) => (
+          <li key={partida.fixture.id}>
+            <MinhasApostas match={partida} />
           </li>
         ))}
       </Ul>
@@ -77,4 +76,4 @@ const MyBetsList = () => {
   )
 }
 
-export default MyBetsList
+export default ListaMinhasApostas

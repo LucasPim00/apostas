@@ -1,20 +1,20 @@
-import HowWorks from "../../Components/HowWorks";
-import Header from "../../Components/Header";
-import About from "../../Components/AboutUs";
-import BannerHome from "../../Components/BannerHome";
-import HomeStatistics from "../../Components/HomeStatistics";
-import Footer from "../../Components/Footer";
+import ComoFunciona from "../../Components/HowWorks";
+import Cabecalho from "../../Components/Header";
+import Sobre from "../../Components/AboutUs";
+import BannerInicial from "../../Components/BannerHome";
+import EstatisticasHome from "../../Components/HomeStatistics";
+import Rodape from "../../Components/Footer";
 
-const Home = () => {
+const PaginaInicial = () => {
   return (
     <>
-      <Header />
-      <BannerHome />
-      <About />
-      <HowWorks />
-      <Footer />
+      <Cabecalho />
+      <BannerInicial />
+      <Sobre />
+      <ComoFunciona />
+      <Rodape />
     </>
   );
 };
 
-export default Home;
+export default PaginaInicial;

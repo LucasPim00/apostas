@@ -1,12 +1,16 @@
 import { ContainerInput, Container } from './styles'
 
+// Componente de input reutilizável
 const Input = (
   { name, value, type, placeholder, register, error },
   ...props
 ) => {
   return (
     <Container>
+      {/* Nome do campo */}
       <span>{name}</span>
+
+      {/* Campo de input com tratamento de erro */}
       <ContainerInput isErrored={!!error}>
         {register ? (
           <input
@@ -19,7 +23,11 @@ const Input = (
           <input type={type} placeholder={placeholder} {...props} />
         )}
       </ContainerInput>
-      <div className='error'>{!!error && <span>{error}</span>}</div>
+
+      {/* Exibe mensagem de erro, se houver */}
+      <div className='error'>
+        {!!error && <span>{error}</span>}
+      </div>
     </Container>
   )
 }

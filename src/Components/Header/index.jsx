@@ -184,7 +184,7 @@ const Header = (props) => {
                       sx={styleBtns}
                     >
                       <Typography textAlign='center' variant='h2'>
-                        Sports
+                        Esportes
                       </Typography>
                     </Button>
                     <Button
@@ -197,7 +197,7 @@ const Header = (props) => {
                         color: 'white',
                       }}
                     >
-                      Login
+                      Entrar
                     </Button>
                     <Button
                       size='large'
@@ -212,7 +212,7 @@ const Header = (props) => {
                         marginLeft: '10px',
                       }}
                     >
-                      Sign up
+                      Inscreva-se
                     </Button>
                   </div>
                 )}
@@ -232,7 +232,7 @@ const Header = (props) => {
                       sx={styleBtns}
                     >
                       <Typography textAlign='center' variant='h2'>
-                        Sports
+                        Esportes
                       </Typography>
                     </Button>
                     <Button
@@ -240,7 +240,7 @@ const Header = (props) => {
                       sx={styleBtns}
                     >
                       <Typography textAlign='center' variant='h2'>
-                        Dashboard
+                        Painel
                       </Typography>
                     </Button>
 
@@ -282,7 +282,7 @@ const Header = (props) => {
                           variant='text'
                           sx={{ marginLeft: '10px' }}
                         >
-                          My Bets
+                          Minhas apostas
                         </Typography>
                       </MenuItem>
                       <MenuItem
@@ -298,7 +298,7 @@ const Header = (props) => {
                           variant='text'
                           sx={{ marginLeft: '10px' }}
                         >
-                          Deposit/Withdraw
+                          Depósitos/Saques
                         </Typography>
                       </MenuItem>
                       <MenuItem
@@ -314,7 +314,7 @@ const Header = (props) => {
                           variant='text'
                           sx={{ marginLeft: '10px' }}
                         >
-                          Afiliate
+                          Afiliado
                         </Typography>
                       </MenuItem>
                       <MenuItem
@@ -330,7 +330,7 @@ const Header = (props) => {
                           variant='text'
                           sx={{ marginLeft: '10px' }}
                         >
-                          Buy Crypto
+                          Comprar Crypto
                         </Typography>
                       </MenuItem>
                       <MenuItem
@@ -346,7 +346,7 @@ const Header = (props) => {
                           variant='text'
                           sx={{ marginLeft: '10px' }}
                         >
-                          Transactions
+                          Transações
                         </Typography>
                       </MenuItem>
                       <MenuItem
@@ -362,7 +362,7 @@ const Header = (props) => {
                           variant='text'
                           sx={{ marginLeft: '10px' }}
                         >
-                          Settings
+                          Ajustes
                         </Typography>
                       </MenuItem>
                       <MenuItem
@@ -381,7 +381,7 @@ const Header = (props) => {
                           variant='text'
                           sx={{ marginLeft: '10px' }}
                         >
-                          Logout
+                          Sair
                         </Typography>
                       </MenuItem>
                     </Menu>
@@ -455,7 +455,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            Sports
+                            Esportes
                           </Typography>
                         </MenuItem>
 
@@ -473,7 +473,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            My Bets
+                            Minhas apostas
                           </Typography>
                         </MenuItem>
                         <MenuItem
@@ -490,7 +490,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            Deposit/Withdraw
+                            Depósitos/Saques
                           </Typography>
                         </MenuItem>
                         <MenuItem
@@ -507,7 +507,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            Afiliate
+                            Afiliado
                           </Typography>
                         </MenuItem>
                         <MenuItem
@@ -524,7 +524,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            Buy Crypto
+                            Comprar Crypto
                           </Typography>
                         </MenuItem>
                         <MenuItem
@@ -541,7 +541,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            Transactions
+                            Transações
                           </Typography>
                         </MenuItem>
                         <MenuItem
@@ -558,7 +558,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            Settings
+                            Ajustes
                           </Typography>
                         </MenuItem>
                         <MenuItem
@@ -577,7 +577,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            Logout
+                            Sair
                           </Typography>
                         </MenuItem>
                       </Container>
@@ -611,7 +611,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            Sign Up
+                            Inscreva-se
                           </Typography>
                         </MenuItem>
                         <MenuItem
@@ -626,7 +626,7 @@ const Header = (props) => {
                             variant='text'
                             sx={{ marginLeft: '10px' }}
                           >
-                            Login
+                            Entrar
                           </Typography>
                         </MenuItem>
                       </Container>

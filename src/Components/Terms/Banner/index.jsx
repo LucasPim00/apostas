@@ -7,7 +7,7 @@ const Banner = ({ text, imgUrl }) => {
       <Texts>
         <Text>{text}</Text>
         <Span>
-          Home <ArrowRight size={14} /> {text}
+          Início <ArrowRight size={14} /> {text}
         </Span>
       </Texts>
     </Container>

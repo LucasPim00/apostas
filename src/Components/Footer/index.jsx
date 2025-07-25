@@ -12,17 +12,17 @@ const Footer = () => {
     <ImageBackground>
       <LogoData border='leftRight'>
         <figure>
-          <img src={logo} alt='' />
+          <img src={logo} alt='Logo BitBet.io' />
         </figure>
         <ul>
           <Li>
-            <a href='/contact'>Contact</a>
+            <a href='/contact'>Contato</a>
           </Li>
           <Li border='leftRight'>
-            <a href='/terms-conditions'>Terms of Services</a>
+            <a href='/terms-conditions'>Termos de Serviço</a>
           </Li>
           <Li>
-            <a href='/Privacy'>Privacy</a>
+            <a href='/Privacy'>Privacidade</a>
           </Li>
         </ul>
       </LogoData>
@@ -34,8 +34,8 @@ const Footer = () => {
           <InstagramLogo size={32} />
         </div>
         <p>
-          Copyright © 2022 | Developed by{' '}
-          <span className='designed'>GambleTeam</span>
+          Direitos Autorais © 2025 | Desenvolvido por{' '}
+          <span className='designed'>Lucas Pim</span>
         </p>
       </ContainerCopyright>
     </ImageBackground>

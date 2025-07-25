@@ -1,7 +1,7 @@
-import { Erro } from "../../Components/Erro/";
+import { Erro } from "../../Components/Erro/"
 
-export const ErrorPage = () => {
-  return <Erro />;
-};
+export const PaginaDeErro = () => {
+  return <Erro />
+}
 
-export default ErrorPage;
+export default PaginaDeErro

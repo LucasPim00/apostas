@@ -16,12 +16,10 @@ import { PlusCircle, EnvelopeSimple, Keyhole } from 'phosphor-react'
 import { Modal, Box, Typography } from '@mui/material'
 import axios from 'axios'
 import { api } from '../../Services/api'
-import { PasswordContext } from '../../Providers/Password'
 import { usePassword } from '../../Providers/Password'
-//import { useSnackbar, SnackbarProvider } from "notistack";
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { set, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import Input from '../Input'
 import { Uploader } from 'uploader'
 import { UploadButton } from 'react-uploader'
@@ -40,9 +38,8 @@ const style = {
   p: 4,
 }
 
-const Settings = () => {
+const Configuracoes = () => {
   const { changePassword } = usePassword()
-  //const { enqueueSnackbar } = useSnackbar();
   const [enable, setEnable] = React.useState(false)
   const [openModal, setOpenModal] = React.useState(false)
   const { userId, userToken, imagem, setImagem } = useUsers()
@@ -50,12 +47,6 @@ const Settings = () => {
   const handleClose = () => setOpenModal(false)
   const [email, setEmail] = React.useState('')
 
-  //Mensagem de erro e sucesso
-  /* const handleMessage = (message, variant) => {
-    enqueueSnackbar(message, { variant: variant });
-  }; */
-
-  //pegando email
   useEffect(() => getEmail(), [])
 
   const getEmail = () => {
@@ -65,56 +56,33 @@ const Settings = () => {
       .catch((err) => console.log(err))
   }
 
-  //Usando Id para carregar imagens
-
-  //yup para alterar senha
-
-  const formLoginSchema = yup.object().shape({
+  const schema = yup.object().shape({
     password: yup
       .string()
-      .required('Required field *')
+      .required('Campo obrigatório *')
       .matches(
         /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
-        'Password must contain at least one capital letter, one number and one special character!'
+        'A senha deve conter letra maiúscula, número e caractere especial!'
       ),
     confirmPassword: yup
       .string()
-      .required('Required field *')
-      .oneOf([yup.ref('password')], 'Password does not match!'),
+      .required('Campo obrigatório *')
+      .oneOf([yup.ref('password')], 'As senhas não coincidem!'),
   })
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(formLoginSchema),
+    resolver: yupResolver(schema),
   })
 
-  /* const [sen,setsen]=React.useState('')
-  const senha=()=>{
-    api
-      .get(`/users/${userId}`)
-      .then((res) => setsen(res.data.password))
-      .catch((err) => console.log(err))
-  }
-
-    console.log(sen) */
-
   const onSubmitFunction = (data) => {
-    /* senha() */
-    console.log(data)
-    console.log(data.password)
-    console.log(data.currentPassword)
-    console.log(data.confirmPassword)
-
-    //passar a função com o id e o valor da nova senha
     changePassword(userId, data.password)
   }
 
-  //Trabalhando com imagem
-
   const uploader = new Uploader({
-    // Get production API keys from Upload.io
     apiKey: 'free',
   })
 
@@ -127,23 +95,22 @@ const Settings = () => {
           Authorization: `Bearer ${userToken}`,
         },
       })
-      .then((_) => console.log('Profile Picture Att.'))
+      .then(() => console.log('Foto de perfil atualizada!'))
       .catch((err) => console.log(err))
   }
-
-  //Retorno
 
   return (
     <Container>
       <TagSettings>
-        <h5>Settings</h5>
+        <h5>Configurações</h5>
       </TagSettings>
+
       <TagProfile>
         <div className='avatar'>
           <Avatar src={imagem}></Avatar>
         </div>
         <div className='text'>
-          <h4>Upload profile photo via</h4>
+          <h4>Faça upload da sua foto de perfil</h4>
 
           <UploadButton
             uploader={uploader}
@@ -161,24 +128,26 @@ const Settings = () => {
                 }}
                 onClick={onClick}
               >
-                Upload a file...
+                Enviar arquivo...
               </button>
             )}
           </UploadButton>
-          <span>Choose a photo from your personal computer. 3MB max.</span>
+          <span>Escolha uma imagem do seu computador. Máximo de 3MB.</span>
         </div>
       </TagProfile>
+
       <section>
         <TagEmail>
           <EnvelopeSimple size={32} />
           <div className='content'>
             {email}
-            <span className='unverified'>Unverified Account</span>
+            <span className='unverified'>Conta não verificada</span>
           </div>
         </TagEmail>
+
         <TagPassowrd>
           <Keyhole size={40} />
-          <button onClick={handleOpen}>Change Password</button>
+          <button onClick={handleOpen}>Alterar Senha</button>
           <Modal keepMounted open={openModal} onClose={handleClose}>
             <Box sx={style}>
               <Typography
@@ -187,31 +156,23 @@ const Settings = () => {
                 component='h2'
                 sx={{ color: 'white' }}
               >
-                <p>New password</p>
+                <p>Nova senha</p>
               </Typography>
 
               <form onSubmit={handleSubmit(onSubmitFunction)}>
-                {/* <Input
-                  register={register}
-                  type='password'
-                  placeholder='Current password'
-                  name='Current password'
-                  value='currentPassword'
-                  error={errors.password?.message}
-                /> */}
                 <Input
                   register={register}
                   type='password'
-                  placeholder='New password'
-                  name='New password'
+                  placeholder='Nova senha'
+                  name='Nova senha'
                   value='password'
                   error={errors.password?.message}
                 />
                 <Input
                   register={register}
                   type='password'
-                  placeholder='Confirm new password'
-                  name='Confirm new password'
+                  placeholder='Confirmar nova senha'
+                  name='Confirmar nova senha'
                   value='confirmPassword'
                   error={errors.confirmPassword?.message}
                 />
@@ -234,28 +195,28 @@ const Settings = () => {
 
       {enable === true && (
         <Authentication>
-          <h4>Enable Google Authentication</h4>
+          <h4>Habilitar Autenticação Google</h4>
           <Buttons>
             <a href='https://clash-of-clans.br.uptodown.com/android'>
-              <button>DownloadApp</button>
+              <button>Baixar App</button>
             </a>
             <a href='https://br.qr-code-generator.com/a1/'>
-              <button>ScanQrCode</button>
+              <button>Ler QR Code</button>
             </a>
-            <a href='https://cloud.google.com/products/storage?gclsrc=ds&gclsrc=ds&gclid=CLT0vqqy6vcCFU_rDQodHPQGpA'>
-              <button>BackupKey</button>
+            <a href='https://cloud.google.com/products/storage?gclsrc=ds'>
+              <button>Backup da Chave</button>
             </a>
             <a href='https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai?hl=pt'>
-              <button>EnableGoogleAuthentication</button>
+              <button>Ativar Google Authenticator</button>
             </a>
           </Buttons>
           <Footer>
             <p>
-              Step 1: Download and install the Google Authentication app into
-              your mobile phone.
+              Etapa 1: Baixe e instale o aplicativo Google Authenticator no seu celular.
             </p>
             <footer>
-              I have installed the app<button>Next Step</button>
+              Já instalei o aplicativo
+              <button>Próxima Etapa</button>
             </footer>
           </Footer>
         </Authentication>
@@ -264,4 +225,4 @@ const Settings = () => {
   )
 }
 
-export default Settings
+export default Configuracoes

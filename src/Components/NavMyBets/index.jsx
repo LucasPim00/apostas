@@ -1,16 +1,19 @@
 import React from 'react'
 import { SectionButtons } from './styles'
 
-const NavMyBets = ({ handleBets, handleFinishedBets }) => {
+const NavegacaoMinhasApostas = ({ handleBets, handleFinishedBets }) => {
   return (
     <SectionButtons>
       <button onClick={() => handleBets('open')} className='open'>
-        Open Playing
+        Em andamento
       </button>
-      <button onClick={() => {}}>Canceled</button>
-      <button onClick={() => handleFinishedBets('finished')}>Finished</button>
+      <button onClick={() => {}}>Canceladas</button>
+      <button onClick={() => handleFinishedBets('finished')}>
+        Finalizadas
+      </button>
+      
     </SectionButtons>
   )
 }
 
-export default NavMyBets
+export default NavegacaoMinhasApostas

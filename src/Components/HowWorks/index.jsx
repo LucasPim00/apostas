@@ -12,9 +12,9 @@ import {
   EscolhasuasChances,
   EscolhaumaQuantia,
 } from "./Quadros";
+
 import {
   DivExpHowWork,
-  // SectionHowWork,
   TitleHowWork,
   Divcontainer,
   DivListaHowWork,
@@ -48,66 +48,49 @@ const HowWorks = () => {
   function trocandoState(state) {
     setJanela(state);
   }
-  return (
-    // <SectionHowWork>
-      <Divcontainer>
-        <DivExpHowWork>
-          <HowWorkH5>Get to Know</HowWorkH5>
-          <HowWorkH2>How 5Bet Works?</HowWorkH2>
-          <HowWorkP>
-            Our platform has been designed from the ground up to be tailored to the unique form of betting and settlement offered by the blockchain. Follow these simple steps and make profits!
-          </HowWorkP>
-        </DivExpHowWork>
 
-        <DivListaHowWork>
-          <div>
-            <ListaHowWork>
-              <ItemListaHowWork
-                onClick={() => {
-                  trocandoState("partida");
-                }}
-              >
-                <SpanHowWork>
-                  <ImgHowWork src={icon1} alt="icon" />
-                </SpanHowWork>
-                <TitleHowWork>Choose a Match</TitleHowWork>
-              </ItemListaHowWork>
-              <ItemListaHowWork
-                onClick={() => {
-                  trocandoState("time");
-                }}
-              >
-                <SpanHowWork>
-                  <ImgHowWork src={icon2} alt="icon" />
-                </SpanHowWork>
-                <TitleHowWork>Choose your Team</TitleHowWork>
-              </ItemListaHowWork>
-              <ItemListaHowWork
-                onClick={() => {
-                  trocandoState("chances");
-                }}
-              >
-                <SpanHowWork>
-                  <ImgHowWork src={icon3} alt="icon" />
-                </SpanHowWork>
-                <TitleHowWork>Choose your Odd</TitleHowWork>
-              </ItemListaHowWork>
-              <ItemListaHowWork
-                onClick={() => {
-                  trocandoState("quantia");
-                }}
-              >
-                <SpanHowWork>
-                  <ImgHowWork src={icon4} alt="icon" />
-                </SpanHowWork>
-                <TitleHowWork>Choose your Amount</TitleHowWork>
-              </ItemListaHowWork>
-            </ListaHowWork>
-          </div>
-          {trocandoGuia()}
-        </DivListaHowWork>
-      </Divcontainer>
-    //</SectionHowWork>
+  return (
+    <Divcontainer>
+      <DivExpHowWork>
+        <HowWorkH5>Conheça</HowWorkH5>
+        <HowWorkH2>Como funciona a 5Bet?</HowWorkH2>
+        <HowWorkP>
+          Nossa plataforma foi criada desde o início para atender a forma única de apostas e liquidação oferecidas pela blockchain. Siga estes passos simples e comece a lucrar!
+        </HowWorkP>
+      </DivExpHowWork>
+
+      <DivListaHowWork>
+        <div>
+          <ListaHowWork>
+            <ItemListaHowWork onClick={() => trocandoState("partida")}>
+              <SpanHowWork>
+                <ImgHowWork src={icon1} alt="icon" />
+              </SpanHowWork>
+              <TitleHowWork>Escolha uma Partida</TitleHowWork>
+            </ItemListaHowWork>
+            <ItemListaHowWork onClick={() => trocandoState("time")}>
+              <SpanHowWork>
+                <ImgHowWork src={icon2} alt="icon" />
+              </SpanHowWork>
+              <TitleHowWork>Escolha seu Time</TitleHowWork>
+            </ItemListaHowWork>
+            <ItemListaHowWork onClick={() => trocandoState("chances")}>
+              <SpanHowWork>
+                <ImgHowWork src={icon3} alt="icon" />
+              </SpanHowWork>
+              <TitleHowWork>Escolha suas Chances</TitleHowWork>
+            </ItemListaHowWork>
+            <ItemListaHowWork onClick={() => trocandoState("quantia")}>
+              <SpanHowWork>
+                <ImgHowWork src={icon4} alt="icon" />
+              </SpanHowWork>
+              <TitleHowWork>Escolha sua Quantia</TitleHowWork>
+            </ItemListaHowWork>
+          </ListaHowWork>
+        </div>
+        {trocandoGuia()}
+      </DivListaHowWork>
+    </Divcontainer>
   );
 };
 

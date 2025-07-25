@@ -41,20 +41,20 @@ const FormRegister = ({ closeModalRegister, openModalLogin }) => {
   const formRegisterSchema = yup.object().shape({
     name: yup
       .string()
-      .required('Required field *')
-      .min(3, 'Minimum 3 characters *'),
-    email: yup.string().required('Required field *').email('Invalid e-mail. *'),
+      .required('Campo obrigatório *')
+      .min(3, 'Mínimo 3 caracteres *'),
+    email: yup.string().required('Campo obrigatório *').email('E-mail inválido *'),
     password: yup
       .string()
-      .required('Required field *')
+      .required('Campo obrigatório *')
       .matches(
         /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
-        'Password must contain at least one capital letter, one number and one special character!'
+        'A senha deve conter pelo menos uma letra maiúscula, um número e um caractere especial!'
       ),
     confirmPassword: yup
       .string()
-      .required('Required field *')
-      .oneOf([yup.ref('password')], 'Password does not match!'),
+      .required('Campo obrigatório *')
+      .oneOf([yup.ref('password')], 'As senhas não coincidem!'),
     referral: yup.string(),
   })
 
@@ -74,11 +74,8 @@ const FormRegister = ({ closeModalRegister, openModalLogin }) => {
       count: 1,
     }).toString()
 
-    if (referral) {
-      data.balance = 20
-    } else {
-      data.balance = 0
-    }
+    data.balance = referral ? 20 : 0
+
     registerUser(
       data,
       referral,
@@ -96,20 +93,12 @@ const FormRegister = ({ closeModalRegister, openModalLogin }) => {
         <button onClick={closeModalRegister}>X</button>
       </BtnClosed>
       <ContainerLogoMedias>
-        <span>Register On Bitbetio</span>
+        <span>Cadastre-se na Bitbet.io</span>
         <div>
-          <a href='a' alt='Facebook'>
-            <FacebookLogo size={32} />
-          </a>
-          <a href='a' alt='Twitter'>
-            <TwitterLogo size={32} />
-          </a>
-          <a href='a' alt='Linkedin'>
-            <LinkedinLogo size={32} />
-          </a>
-          <a href='a' alt='Instagram'>
-            <InstagramLogo size={32} />
-          </a>
+          <a href='a' alt='Facebook'><FacebookLogo size={32} /></a>
+          <a href='a' alt='Twitter'><TwitterLogo size={32} /></a>
+          <a href='a' alt='Linkedin'><LinkedinLogo size={32} /></a>
+          <a href='a' alt='Instagram'><InstagramLogo size={32} /></a>
         </div>
       </ContainerLogoMedias>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
@@ -117,41 +106,41 @@ const FormRegister = ({ closeModalRegister, openModalLogin }) => {
           register={register}
           value='name'
           type='text'
-          placeholder='Name'
+          placeholder='Nome completo'
           error={errors.name?.message}
-          name='Name'
+          name='Nome'
         />
         <Input
           register={register}
           value='email'
           type='text'
-          placeholder='Email'
+          placeholder='E-mail'
           error={errors.email?.message}
-          name='Email'
+          name='E-mail'
         />
         <Input
           register={register}
           value='password'
           type='password'
-          placeholder='Password'
+          placeholder='Senha'
           error={errors.password?.message}
-          name='Password'
+          name='Senha'
         />
         <Input
           register={register}
           value='confirmPassword'
           type='password'
-          placeholder='Confirm Password'
+          placeholder='Confirmar senha'
           error={errors.confirmPassword?.message}
-          name='Confirm Password'
+          name='Confirmar senha'
         />
 
         <div className='referral'>
           <span
             className='referral'
-            onClick={() => (referral ? setReferral(false) : setReferral(true))}
+            onClick={() => setReferral(!referral)}
           >
-            Have a referral code?{' '}
+            Possui um código de indicação?{' '}
             {referral ? <CaretUp size={15} /> : <CaretDown size={15} />}
           </span>
           {referral && (
@@ -159,21 +148,21 @@ const FormRegister = ({ closeModalRegister, openModalLogin }) => {
               register={register}
               value='referredByCode'
               type='text'
-              placeholder='Enter the referral code'
+              placeholder='Digite o código de indicação'
               error={errors.referral?.message}
             />
           )}
           {!referralCode && referral ? (
-            <span className='error'>Invalid referral is invalid!</span>
+            <span className='error'>Código de indicação inválido!</span>
           ) : null}
         </div>
         <ContainerBtn>
-          <BtnRegister type='submit'>SIGN UP</BtnRegister>
+          <BtnRegister type='submit'>CADASTRAR</BtnRegister>
         </ContainerBtn>
       </form>
       <ContainerHaveLogin>
         <span>
-          Already have an member?ㅤ
+          Já tem conta?ㅤ
           <label
             htmlFor='Login'
             onClick={() => {
@@ -181,23 +170,23 @@ const FormRegister = ({ closeModalRegister, openModalLogin }) => {
               openModalLogin()
             }}
           >
-            Login
+            Entrar
           </label>
         </span>
       </ContainerHaveLogin>
       <ContainerBetsAndTotal>
         <Bets>
           <figure>
-            <img src={signupcounter1} alt='logoBets' />
+            <img src={signupcounter1} alt='logoApostas' />
           </figure>
           <div>
             <span>{userBetsList.length}</span>
-            <label htmlFor=''>Bets</label>
+            <label htmlFor=''>Apostas</label>
           </div>
         </Bets>
         <Bets>
           <figure>
-            <img src={signupcounter2} alt='logoBets' />
+            <img src={signupcounter2} alt='logoApostas' />
           </figure>
           <div>
             <span>
@@ -208,7 +197,7 @@ const FormRegister = ({ closeModalRegister, openModalLogin }) => {
                 )
               )}
             </span>
-            <label htmlFor=''>Total Won</label>
+            <label htmlFor=''>Total Ganhado</label>
           </div>
         </Bets>
       </ContainerBetsAndTotal>

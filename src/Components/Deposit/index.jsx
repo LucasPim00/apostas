@@ -19,7 +19,6 @@ import { useUsers } from '../../Providers/Users'
 const Deposit = () => {
   const token = JSON.parse(localStorage.getItem('@GambleAPI:token'))
   const { userId, addBalance } = useUsers()
-
   const { addTransactions } = useTransactions()
 
   const formDepositSchema = yup.object().shape({
@@ -37,7 +36,7 @@ const Deposit = () => {
   })
 
   const onSubmitFunction = (data) => {
-    data.type = 'deposit'
+    data.type = 'deposito'
     data.currency = 'USD'
     data.userId = userId
     data.timestamp = new Date()
@@ -50,13 +49,13 @@ const Deposit = () => {
   return (
     <Container>
       <ContainerDeposit>
-        <h3>Deposit</h3>
-        <p>Choose your payment method and deposit amount below.</p>
+        <h3>Depósito</h3>
+        <p>Escolha o método de pagamento e valor do depósito abaixo.</p>
         <FormInputs onSubmit={handleSubmit(onSubmitFunction)}>
           <Input
             value='amount'
             type='text'
-            placeholder='Enter Amount'
+            placeholder='Digite o valor'
             register={register}
           />
           <SelectContainer {...register('paymentType')}>
@@ -69,14 +68,14 @@ const Deposit = () => {
           </SelectContainer>
           <LinksForm>
             <ContainerBtn>
-              <BtnWith type='submit'>Send Deposit</BtnWith>
+              <BtnWith type='submit'>Enviar Depósito</BtnWith>
             </ContainerBtn>
           </LinksForm>
         </FormInputs>
-        <h3>Notice:</h3>
+        <h3>Aviso:</h3>
         <p>
-          Deposits will take up to 2 business days to clear your account, the
-          process is done automatically.
+          Os depósitos podem levar até 2 dias úteis para serem compensados
+          na sua conta. O processo é feito automaticamente.
         </p>
       </ContainerDeposit>
     </Container>

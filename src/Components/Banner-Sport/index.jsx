@@ -5,9 +5,9 @@ export const Banner = () => {
   return (
     <Container>
       <Texts>
-        <Text>Soccer Bet</Text>
+        <Text>Aposta de Futebol</Text>
         <Span>
-          Home <ArrowRight size={14} /> Soccer-Bet
+          Início <ArrowRight size={14} /> Aposta de Futebol
         </Span>
       </Texts>
       <Divjunta />

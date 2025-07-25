@@ -9,14 +9,13 @@ import {
   Body,
 } from "./styled.js";
 
-const TermsCond = () => {
+const TermosCondicoes = () => {
   return (
     <Body>
       <Container>
         <Divterm>
           <Titleterm>
-            WE'RE ALWAYS LOOKING FOR NEW WAYS TO PROVIDE PRIVACY FOR OUR
-            CUSTOMERS.
+            ESTAMOS SEMPRE BUSCANDO NOVAS MANEIRAS DE GARANTIR A PRIVACIDADE DOS NOSSOS CLIENTES.
           </Titleterm>
           <Pterm>
             Id ipsum mi tempor eget. Pretium consectetur scelerisque blandit
@@ -27,13 +26,10 @@ const TermsCond = () => {
             duis. Pharetra ipsum mauris integer sit feugiat.
           </Pterm>
           <Ulterm>
-            <Literm>
-              — Blandit dignissim nulla varius tristique a sed integer ut
-              tempor.
-            </Literm>
+            <Literm>— Blandit dignissim nulla varius tristique a sed integer ut tempor.</Literm>
             <Literm>— Augue interdum semper bibendum amet sed.</Literm>
             <Literm>— Dis in at ultricies tortor sit tellus.</Literm>
-            <Literm>— Habitant ornare aenean maecenas pretium</Literm>
+            <Literm>— Habitant ornare aenean maecenas pretium.</Literm>
           </Ulterm>
           <Pterm>
             Eget purus aenean sit risus. Arcu, aliquam eget et viverra risus
@@ -46,10 +42,10 @@ const TermsCond = () => {
             Etiam dignissim orci dignissim vitae.
           </Pterm>
         </Divterm>
+
         <Divterm>
           <Titleterm>
-            YOUR DATA IS SAFE WITH US, WE WILL NOT SHARE ANY INFORMATION WITH
-            EXTERNAL SOURCES.
+            SEUS DADOS ESTÃO SEGUROS CONOSCO, NÃO COMPARTILHAREMOS NENHUMA INFORMAÇÃO COM FONTES EXTERNAS.
           </Titleterm>
           <Pterm>
             Blandit dignissim nulla varius tristique a sed integer ut tempor.
@@ -87,4 +83,5 @@ const TermsCond = () => {
   );
 };
 
-export default TermsCond;
+export default TermosCondicoes;
+

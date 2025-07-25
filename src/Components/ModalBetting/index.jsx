@@ -5,7 +5,8 @@ import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import { useState } from 'react'
 
-const style = {
+// Estilo do modal
+const estiloModal = {
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -19,24 +20,24 @@ const style = {
 
 export default function ModalBetting() {
   const [open, setOpen] = useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
+  const abrir = () => setOpen(true)
+  const fechar = () => setOpen(false)
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={abrir}>Abrir Modal</Button>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={fechar}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
       >
-        <Box sx={style}>
+        <Box sx={estiloModal}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
-            Text in a modal
+            Modal de Aposta
           </Typography>
           <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            Aqui você pode configurar os detalhes da sua aposta.
           </Typography>
         </Box>
       </Modal>

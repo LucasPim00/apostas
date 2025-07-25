@@ -16,14 +16,15 @@ export const Erro = () => {
   function handleClick() {
     history.push("/");
   }
+
   return (
     <Container>
-      <IMG404 src={Img404} alt="404" />
+      <IMG404 src={Img404} alt="Erro 404" />
       <DIVbase>
-        <H2text>Page not found</H2text>
-        <Ptext>Oops.. Looks like you got lost:(</Ptext>
+        <H2text>Página não encontrada</H2text>
+        <Ptext>Oops... Parece que você se perdeu :(</Ptext>
         <DIVButton>
-          <ButtonHome onClick={() => handleClick()}>Go Back Home</ButtonHome>
+          <ButtonHome onClick={handleClick}>Voltar para o Início</ButtonHome>
         </DIVButton>
       </DIVbase>
     </Container>

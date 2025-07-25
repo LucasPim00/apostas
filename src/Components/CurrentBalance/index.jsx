@@ -9,7 +9,7 @@ const CurrentBalance = () => {
     <Container>
       <ContainerCurrentBalance>
         <SelectCurrent>
-          <label htmlFor="Current Balance">Current Balance</label>
+          <label htmlFor="Current Balance">Saldo Atual</label>
           <select name="currentBalance" id="currentBalance">
             <option value="BTC">BTC</option>
             <option value="ETH">ETH</option>
@@ -19,11 +19,11 @@ const CurrentBalance = () => {
         <SpanValues htmlFor="">
           <label htmlFor="">0.1018183873</label> BTC
         </SpanValues>
-        <span>1BTC = 49,345.50 USD</span>
+        <span>1 BTC = 49.345,50 USD</span>
       </ContainerCurrentBalance>
       <Div>
-        <Deposit/>
-        <Withdraw/>
+        <Deposit />
+        <Withdraw />
       </Div>
     </Container>
   )
